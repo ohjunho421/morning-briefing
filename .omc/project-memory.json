@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1779420568642,
+  "projectRoot": "D:\\morning-briefing",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {},
+  "hotPaths": [
+    {
+      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\Hermes_Gateway.cmd",
+      "accessCount": 3,
+      "lastAccessed": 1779421235049,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1779420584303,
+      "type": "directory"
+    },
+    {
+      "path": "C:\\Users\\dhwns\\.hermes",
+      "accessCount": 1,
+      "lastAccessed": 1779420712447,
+      "type": "directory"
+    },
+    {
+      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes",
+      "accessCount": 1,
+      "lastAccessed": 1779420718316,
+      "type": "directory"
+    },
+    {
+      "path": "C:\\Users\\dhwns\\.hermes\\gateway_state.json",
+      "accessCount": 1,
+      "lastAccessed": 1779420729995,
+      "type": "file"
+    },
+    {
+      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\MorningBriefing_Catchup.ps1",
+      "accessCount": 1,
+      "lastAccessed": 1779420879702,
+      "type": "file"
+    },
+    {
+      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\MorningBriefing_Marker.ps1",
+      "accessCount": 1,
+      "lastAccessed": 1779420929025,
+      "type": "file"
+    },
+    {
+      "path": "C:\\Users\\dhwns\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\MorningBriefing_Catchup.vbs",
+      "accessCount": 1,
+      "lastAccessed": 1779420966865,
+      "type": "file"
+    },
+    {
+      "path": "C:\\Users\\dhwns\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Hermes_Gateway.vbs",
+      "accessCount": 1,
+      "lastAccessed": 1779421240419,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

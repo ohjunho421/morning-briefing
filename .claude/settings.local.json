@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(& \"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\venv\\\\Scripts\\\\python.exe\" -m hermes_cli.main cron list 2>&1)",
+      "PowerShell(schtasks /Create /TN \"MorningBriefing_Marker\" /TR \"powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `\"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\gateway-service\\\\MorningBriefing_Marker.ps1`\"\" /SC DAILY /ST 10:01 /RL LIMITED /F)",
+      "PowerShell($startupDir = [Environment]::GetFolderPath\\(\"Startup\"\\); Write-Output $startupDir; Test-Path $startupDir)",
+      "PowerShell(powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\gateway-service\\\\MorningBriefing_Catchup.ps1\" 2>&1)",
+      "PowerShell($env:HERMES_HOME = \"C:\\\\Users\\\\dhwns\\\\.hermes\"; $env:PYTHONIOENCODING = \"utf-8\"; & \"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\venv\\\\Scripts\\\\python.exe\" -m hermes_cli.main cron list 2>&1)",
+      "PowerShell(Get-Content \"C:\\\\Users\\\\dhwns\\\\.hermes\\\\gateway_state.json\" -Raw -Encoding utf8 | ConvertFrom-Json | Select-Object gateway_state, pid, @{N='slack';E={$_.platforms.slack.state}})",
+      "PowerShell($raw = Get-Content \"C:\\\\Users\\\\dhwns\\\\.hermes\\\\gateway_state.json\" -Raw -Encoding utf8; $json = $raw | ConvertFrom-Json; Write-Output \"State: $\\($json.gateway_state\\)\"; Write-Output \"PID: $\\($json.pid\\)\"; Write-Output \"Slack: $\\($json.platforms.slack.state\\)\")",
+      "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_search_channels",
+      "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_read_channel",
+      "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_read_thread"
+    ]
+  }
+}
