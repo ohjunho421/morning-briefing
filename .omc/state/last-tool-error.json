@@ -1,7 +1,0 @@
-{
-  "tool_name": "PowerShell",
-  "tool_input_preview": "{\"command\":\"schtasks /Create /TN \\\"MorningBriefing_Catchup\\\" /TR \\\"powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `\\\"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\gateway-serv...",
-  "error": "Exit code 1\nERROR: Access is denied.",
-  "timestamp": "2026-05-22T03:35:43.969Z",
-  "retry_count": 1
-}

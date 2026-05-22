@@ -10,7 +10,10 @@
       "PowerShell($raw = Get-Content \"C:\\\\Users\\\\dhwns\\\\.hermes\\\\gateway_state.json\" -Raw -Encoding utf8; $json = $raw | ConvertFrom-Json; Write-Output \"State: $\\($json.gateway_state\\)\"; Write-Output \"PID: $\\($json.pid\\)\"; Write-Output \"Slack: $\\($json.platforms.slack.state\\)\")",
       "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_search_channels",
       "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_read_channel",
-      "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_read_thread"
+      "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_read_thread",
+      "PowerShell(New-Item -ItemType Directory -Path \"D:\\\\morning-briefing\\\\docs\" -Force)",
+      "PowerShell(New-Item -ItemType Directory -Path \"D:\\\\morning-briefing\\\\docs\\\\features\" -Force)",
+      "PowerShell(New-Item -ItemType Directory -Path \"D:\\\\morning-briefing\\\\docs\\\\operations\" -Force)"
     ]
   }
 }

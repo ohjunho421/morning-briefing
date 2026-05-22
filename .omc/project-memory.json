@@ -34,16 +34,16 @@
   "directoryMap": {},
   "hotPaths": [
     {
+      "path": "",
+      "accessCount": 5,
+      "lastAccessed": 1779422203634,
+      "type": "directory"
+    },
+    {
       "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\Hermes_Gateway.cmd",
       "accessCount": 3,
       "lastAccessed": 1779421235049,
       "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 1,
-      "lastAccessed": 1779420584303,
-      "type": "directory"
     },
     {
       "path": "C:\\Users\\dhwns\\.hermes",
@@ -85,6 +85,48 @@
       "path": "C:\\Users\\dhwns\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Hermes_Gateway.vbs",
       "accessCount": 1,
       "lastAccessed": 1779421240419,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 1,
+      "lastAccessed": 1779422009636,
+      "type": "file"
+    },
+    {
+      "path": "SKILL.md",
+      "accessCount": 1,
+      "lastAccessed": 1779422011704,
+      "type": "file"
+    },
+    {
+      "path": ".claude\\settings.local.json",
+      "accessCount": 1,
+      "lastAccessed": 1779422014304,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 1,
+      "lastAccessed": 1779422145931,
+      "type": "file"
+    },
+    {
+      "path": "docs\\00-INDEX.md",
+      "accessCount": 1,
+      "lastAccessed": 1779422169613,
+      "type": "file"
+    },
+    {
+      "path": "docs\\agent-workflow.md",
+      "accessCount": 1,
+      "lastAccessed": 1779422187088,
+      "type": "file"
+    },
+    {
+      "path": "docs\\code-review-checklist.md",
+      "accessCount": 1,
+      "lastAccessed": 1779422195729,
       "type": "file"
     }
   ],
