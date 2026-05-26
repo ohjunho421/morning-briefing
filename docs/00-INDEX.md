@@ -41,8 +41,9 @@ docs/
 | 키워드 | 참고 문서 | 설명 |
 |--------|----------|------|
 | 아침 브리핑, 이메일 요약 | /SKILL.md "사용법" 섹션 | 자동 브리핑 동작 |
+| Railway, 클라우드 배포 | app/main.py, Dockerfile, railway.toml | Railway 크론잡 기반 클라우드 브리핑 |
 | Notion 회의록, 액션아이템 | /SKILL.md "수동 요청" 섹션 | Slack에서 수동 요청 |
-| PC 부팅 캐치업 | /CLAUDE.md Gotchas | 부팅 시 놓친 브리핑 자동 실행 |
+| PC 부팅 캐치업 | /CLAUDE.md Gotchas | 부팅 시 놓친 브리핑 자동 실행 (레거시) |
 
 ### 운영
 

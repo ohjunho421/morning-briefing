@@ -1,0 +1,7 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# 10:00 KST = 01:00 UTC
+cronSchedule = "0 1 * * *"
