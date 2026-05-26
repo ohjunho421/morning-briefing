@@ -16,6 +16,16 @@ morning-briefing/
 ├── SKILL.md               # Hermes Agent 스킬 정의 (Phase 0~5 셋업 가이드)
 ├── README.md              # 프로젝트 소개
 ├── .gitignore             # 시크릿/캐시 제외
+├── app/                   # Railway 클라우드 브리핑 서비스
+│   ├── __init__.py
+│   ├── main.py            # 엔트리포인트 (cron → Gmail → Calendar → Claude → Slack)
+│   ├── gmail_client.py    # Gmail API (OAuth refresh token)
+│   ├── calendar_client.py # Google Calendar API
+│   ├── summarizer.py      # Claude API 요약 생성
+│   └── slack_sender.py    # Slack 메시지 전송
+├── Dockerfile             # Railway 빌드용
+├── railway.toml           # Railway 크론잡 설정 (매일 10시 KST)
+├── requirements.txt       # Python 의존성
 ├── docs/
 │   ├── 00-INDEX.md        # 요청→문서 라우팅
 │   ├── agent-workflow.md  # 에이전트 파이프라인
@@ -46,7 +56,8 @@ morning-briefing/
 1. **매일 아침 Gmail 요약** — 크론잡(`0 10 * * *`)으로 지난 24시간 이메일 요약
 2. **매일 아침 Calendar 일정** — 오늘 일정 시간/제목/장소 정리
 3. **Slack 전송** — 위 브리핑을 Slack 채널/DM으로 자동 전달
-4. **PC 부팅 캐치업** — PC가 꺼져 있어서 놓친 브리핑을 부팅 시 자동 실행
+4. **PC 부팅 캐치업** — PC가 꺼져 있어서 놓친 브리핑을 부팅 시 자동 실행 (레거시)
+5. **Railway 클라우드 브리핑** — PC 상태 무관, Railway 크론잡으로 매일 10시 KST 자동 실행 (`app/`)
 
 ## 기술 스택
 
@@ -58,15 +69,17 @@ morning-briefing/
 | 캘린더 | Google Calendar API (OAuth 2.0) |
 | 노트 | Notion API |
 | 메시징 | Slack (Socket Mode, Bot Token) |
-| 스케줄링 | Hermes cron + Windows Task Scheduler |
-| OS 자동화 | PowerShell + VBScript (Windows Startup) |
+| 스케줄링 | Hermes cron + Windows Task Scheduler (레거시) |
+| OS 자동화 | PowerShell + VBScript (Windows Startup, 레거시) |
+| 클라우드 배포 | Railway (Docker + cron, 매일 01:00 UTC = 10:00 KST) |
 
 ## 보안 규칙
 
-- API 키/토큰은 절대 코드에 하드코딩하지 않음 (`~/.hermes/.env`에서만 관리)
+- API 키/토큰은 절대 코드에 하드코딩하지 않음 (`~/.hermes/.env` 또는 Railway 환경변수에서만 관리)
 - `google_token.json`, `google_client_secret.json`은 `.gitignore`에 포함
 - `.env` 파일은 절대 커밋하지 않음
 - Slack Bot Token(`xoxb-`), App Token(`xapp-`)은 로그에 출력 금지
+- Railway 환경변수: `GOOGLE_REFRESH_TOKEN`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `ANTHROPIC_API_KEY`, `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID`
 
 ## Gotchas (과거 교훈)
 
@@ -74,6 +87,12 @@ morning-briefing/
 |------|------|------|
 | 2026-05-22 | PC 꺼져 있으면 10시 크론잡 미실행 | Startup 폴더에 캐치업 VBS 추가로 부팅 시 자동 보충 |
 | 2026-05-22 | Hermes Gateway도 PC 재부팅 시 꺼짐 | Startup 폴더에 Gateway VBS 추가로 자동 시작 |
+| 2026-05-23 | Gateway 재부팅 후 stale state로 캐치업 실패 | CMD에서 시작 전 state 초기화 + Catchup에서 PID 생존 검증 추가 |
+| 2026-05-24 | VBS가 CMD를 직접 실행 시 "파일을 찾을 수 없습니다" 에러 + Task Scheduler와 충돌 | VBS에서 cmd.exe /c 명시 + 10초 딜레이 + CMD에 중복 실행 방지(tasklist) 추가 |
+| 2026-05-24 | 브리핑 트리거 후 마커 즉시 기록 → Gateway 크래시 시 미전송+재시도 불가 | active_agents 모니터링으로 실제 완료 확인 후 마커 기록, 실패 시 마커 미생성(다음 부팅 재시도) |
+| 2026-05-24 | tasklist가 모든 pythonw.exe 감지 → 다른 Python 프로세스 때문에 Gateway 미시작 | gateway_state.json PID 검증으로 교체 (특정 Gateway 프로세스만 확인) |
+| 2026-05-24 | CMD 배치 파일 LF 줄바꿈 → CMD.exe 파싱 실패 | Claude Code Edit/Write 사용 금지, PowerShell WriteAllText로 CRLF+ASCII 강제 |
+| 2026-05-27 | 로컬 VBS→CMD→PS1 체인 전체 불안정 (부팅 시 VBS 미실행 빈번) | Railway 클라우드 배포로 전환. PC 상태에 의존하지 않는 구조 |
 
 ## 수정 시 체크리스트
 
