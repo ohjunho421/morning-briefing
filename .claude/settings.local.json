@@ -13,7 +13,17 @@
       "mcp__d3baa376-9173-4e43-bb5d-6f89ddad8d2c__slack_read_thread",
       "PowerShell(New-Item -ItemType Directory -Path \"D:\\\\morning-briefing\\\\docs\" -Force)",
       "PowerShell(New-Item -ItemType Directory -Path \"D:\\\\morning-briefing\\\\docs\\\\features\" -Force)",
-      "PowerShell(New-Item -ItemType Directory -Path \"D:\\\\morning-briefing\\\\docs\\\\operations\" -Force)"
+      "PowerShell(New-Item -ItemType Directory -Path \"D:\\\\morning-briefing\\\\docs\\\\operations\" -Force)",
+      "PowerShell(if \\(Test-Path \"$env:USERPROFILE\\\\.hermes\\\\gateway_state.json\"\\) { Get-Content \"$env:USERPROFILE\\\\.hermes\\\\gateway_state.json\" } else { \"gateway_state.json not found\" })",
+      "PowerShell($gatewayCmd = \"$env:LOCALAPPDATA\\\\hermes\\\\gateway-service\\\\Hermes_Gateway.cmd\"; $catchupPs1 = \"$env:LOCALAPPDATA\\\\hermes\\\\gateway-service\\\\MorningBriefing_Catchup.ps1\"; $markerPs1 = \"$env:LOCALAPPDATA\\\\hermes\\\\gateway-service\\\\MorningBriefing_Marker.ps1\"; \"Gateway CMD exists: $\\(Test-Path $gatewayCmd\\)\"; \"Catchup PS1 exists: $\\(Test-Path $catchupPs1\\)\"; \"Marker PS1 exists: $\\(Test-Path $markerPs1\\)\")",
+      "PowerShell(Get-Process pythonw -ErrorAction SilentlyContinue)",
+      "PowerShell(if \\(-not $?\\) { \"No pythonw process running\" })",
+      "PowerShell(Start-Sleep -Seconds 10; Get-Content \"$env:USERPROFILE\\\\.hermes\\\\gateway_state.json\" -Raw -Encoding utf8 | ConvertFrom-Json | Select-Object pid, gateway_state, updated_at, @{N='slack_state';E={$_.platforms.slack.state}})",
+      "PowerShell($env:HERMES_HOME = \"C:\\\\Users\\\\dhwns\\\\.hermes\"; $env:PYTHONIOENCODING = \"utf-8\"; & \"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\venv\\\\Scripts\\\\python.exe\" -m hermes_cli.main cron run morning-briefing 2>&1)",
+      "Bash(powershell -Command \"Get-ChildItem 'C:\\\\Users\\\\dhwns\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup' | Select-Object Name, LastWriteTime\")",
+      "Bash(ls \"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\hermes_cli\" 2>&1)",
+      "PowerShell($task = Get-ScheduledTask -TaskName \"Hermes_Gateway\" -ErrorAction SilentlyContinue; if \\($task\\) { \"--- Actions ---\"; $task.Actions | Select-Object Execute, Arguments, WorkingDirectory | Format-List; \"--- Triggers ---\"; $task.Triggers | Select-Object CimClass, Delay, Enabled | Format-List; \"--- Settings ---\"; $task.Settings | Select-Object ExecutionTimeLimit, RestartInterval, RestartCount, AllowStartIfOnBatteries | Format-List; \"--- Principal ---\"; $task.Principal | Select-Object UserId, LogonType, RunLevel | Format-List } else { \"Task not found\" })",
+      "PowerShell($task = Get-ScheduledTask -TaskName \"Hermes_Gateway\"; $task.Settings.DisallowStartIfOnBatteries = $false; $task.Settings.StopIfGoingOnBatteries = $false; $task.Actions[0].Execute = \"cmd.exe\"; $task.Actions[0].Arguments = \"/c `\"C:\\\\Users\\\\dhwns\\\\AppData\\\\Local\\\\hermes\\\\gateway-service\\\\Hermes_Gateway.cmd`\"\"; Set-ScheduledTask -InputObject $task | Select-Object TaskName, State; \"\"; \"Updated action:\"; $task.Actions | Select-Object Execute, Arguments | Format-List)"
     ]
   }
 }

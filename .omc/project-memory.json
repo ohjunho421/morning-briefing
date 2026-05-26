@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1779420568642,
+  "lastScanned": 1779772128924,
   "projectRoot": "D:\\morning-briefing",
   "techStack": {
     "languages": [],
@@ -24,109 +24,117 @@
   "structure": {
     "isMonorepo": false,
     "workspaces": [],
-    "mainDirectories": [],
+    "mainDirectories": [
+      "docs"
+    ],
     "gitBranches": {
       "defaultBranch": "master",
       "branchingStrategy": null
     }
   },
   "customNotes": [],
-  "directoryMap": {},
+  "directoryMap": {
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 3,
+      "lastAccessed": 1779772128528,
+      "keyFiles": [
+        "00-INDEX.md",
+        "agent-workflow.md",
+        "code-review-checklist.md"
+      ]
+    }
+  },
   "hotPaths": [
     {
+      "path": "CLAUDE.md",
+      "accessCount": 7,
+      "lastAccessed": 1779811003716,
+      "type": "file"
+    },
+    {
       "path": "",
-      "accessCount": 5,
-      "lastAccessed": 1779422203634,
+      "accessCount": 2,
+      "lastAccessed": 1779810736265,
       "type": "directory"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\Hermes_Gateway.cmd",
-      "accessCount": 3,
-      "lastAccessed": 1779421235049,
+      "path": "docs\\00-INDEX.md",
+      "accessCount": 2,
+      "lastAccessed": 1779810950481,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\.hermes",
-      "accessCount": 1,
-      "lastAccessed": 1779420712447,
-      "type": "directory"
-    },
-    {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes",
-      "accessCount": 1,
-      "lastAccessed": 1779420718316,
-      "type": "directory"
-    },
-    {
-      "path": "C:\\Users\\dhwns\\.hermes\\gateway_state.json",
-      "accessCount": 1,
-      "lastAccessed": 1779420729995,
+      "path": "app\\__init__.py",
+      "accessCount": 2,
+      "lastAccessed": 1779811078966,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\MorningBriefing_Catchup.ps1",
-      "accessCount": 1,
-      "lastAccessed": 1779420879702,
+      "path": "app\\gmail_client.py",
+      "accessCount": 2,
+      "lastAccessed": 1779811227305,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\MorningBriefing_Marker.ps1",
-      "accessCount": 1,
-      "lastAccessed": 1779420929025,
+      "path": "app\\calendar_client.py",
+      "accessCount": 2,
+      "lastAccessed": 1779811234598,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\MorningBriefing_Catchup.vbs",
-      "accessCount": 1,
-      "lastAccessed": 1779420966865,
+      "path": "app\\summarizer.py",
+      "accessCount": 2,
+      "lastAccessed": 1779811247296,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Hermes_Gateway.vbs",
-      "accessCount": 1,
-      "lastAccessed": 1779421240419,
+      "path": "app\\slack_sender.py",
+      "accessCount": 2,
+      "lastAccessed": 1779811254182,
       "type": "file"
     },
     {
-      "path": "README.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422009636,
+      "path": "app\\main.py",
+      "accessCount": 2,
+      "lastAccessed": 1779811264500,
+      "type": "file"
+    },
+    {
+      "path": "requirements.txt",
+      "accessCount": 2,
+      "lastAccessed": 1779811269738,
       "type": "file"
     },
     {
       "path": "SKILL.md",
       "accessCount": 1,
-      "lastAccessed": 1779422011704,
+      "lastAccessed": 1779810736763,
       "type": "file"
     },
     {
-      "path": ".claude\\settings.local.json",
+      "path": "Dockerfile",
       "accessCount": 1,
-      "lastAccessed": 1779422014304,
+      "lastAccessed": 1779810840463,
       "type": "file"
     },
     {
-      "path": "CLAUDE.md",
+      "path": "railway.toml",
       "accessCount": 1,
-      "lastAccessed": 1779422145931,
-      "type": "file"
-    },
-    {
-      "path": "docs\\00-INDEX.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422169613,
-      "type": "file"
-    },
-    {
-      "path": "docs\\agent-workflow.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422187088,
+      "lastAccessed": 1779810845612,
       "type": "file"
     },
     {
       "path": "docs\\code-review-checklist.md",
       "accessCount": 1,
-      "lastAccessed": 1779422195729,
+      "lastAccessed": 1779811015219,
+      "type": "file"
+    },
+    {
+      "path": "app\\auth.py",
+      "accessCount": 1,
+      "lastAccessed": 1779811220536,
       "type": "file"
     }
   ],
