@@ -50,16 +50,15 @@ def fetch_today_events() -> list[dict[str, Any]]:
 
     results: list[dict[str, Any]] = []
     for ev in events:
-        start_raw = ev.get("start", {})
-        end_raw = ev.get("end", {})
+        start_raw = ev.get("start") or {}
+        end_raw = ev.get("end") or {}
         all_day = "date" in start_raw
 
         if all_day:
-            start_str = start_raw["date"]
+            start_str = start_raw.get("date", "")
             end_str = end_raw.get("date", "")
         else:
-            dt = start_raw.get("dateTime", "")
-            start_str = _format_time(dt)
+            start_str = _format_time(start_raw.get("dateTime", ""))
             end_str = _format_time(end_raw.get("dateTime", ""))
 
         results.append({
