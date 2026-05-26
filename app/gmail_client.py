@@ -41,13 +41,17 @@ def fetch_recent_emails(hours: int = 24, max_results: int = 20) -> list[dict[str
 
     results: list[dict[str, Any]] = []
     for msg_meta in messages:
-        msg = (
-            service.users()
-            .messages()
-            .get(userId="me", id=msg_meta["id"], format="metadata",
-                 metadataHeaders=["From", "Subject", "Date"])
-            .execute()
-        )
+        try:
+            msg = (
+                service.users()
+                .messages()
+                .get(userId="me", id=msg_meta["id"], format="metadata",
+                     metadataHeaders=["From", "Subject", "Date"])
+                .execute()
+            )
+        except Exception:
+            logger.warning("Failed to fetch message %s, skipping.", msg_meta["id"])
+            continue
         headers = {h["name"]: h["value"] for h in msg.get("payload", {}).get("headers", [])}
         results.append({
             "from": headers.get("From", "(unknown)"),

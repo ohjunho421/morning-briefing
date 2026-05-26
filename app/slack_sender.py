@@ -11,6 +11,8 @@ logger = logging.getLogger(__name__)
 
 KST = timezone(timedelta(hours=9))
 
+_KR_WEEKDAYS = ["월", "화", "수", "목", "금", "토", "일"]
+
 
 def send_briefing(text: str) -> bool:
     """Post the briefing message to the configured Slack channel.
@@ -21,7 +23,9 @@ def send_briefing(text: str) -> bool:
     channel = os.environ["SLACK_CHANNEL_ID"]
 
     client = WebClient(token=token, timeout=30)
-    today = datetime.now(KST).strftime("%Y-%m-%d (%a)")
+    now = datetime.now(KST)
+    weekday_kr = _KR_WEEKDAYS[now.weekday()]
+    today = f"{now.strftime('%Y-%m-%d')} ({weekday_kr})"
 
     try:
         result = client.chat_postMessage(
