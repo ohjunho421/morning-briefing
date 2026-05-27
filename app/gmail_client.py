@@ -12,15 +12,13 @@ logger = logging.getLogger(__name__)
 
 KST = timezone(timedelta(hours=9))
 
-SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
-
 
 def fetch_recent_emails(hours: int = 24, max_results: int = 20) -> list[dict[str, Any]]:
     """Return list of emails from the last *hours* hours.
 
     Each item: {"from", "subject", "snippet", "date"}
     """
-    creds = get_google_credentials(SCOPES)
+    creds = get_google_credentials()
     service = build("gmail", "v1", credentials=creds, cache_discovery=False)
 
     after_epoch = int((datetime.now(KST) - timedelta(hours=hours)).timestamp())
