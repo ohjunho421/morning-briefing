@@ -1,11 +1,20 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1779420568642,
+  "lastScanned": 1779849479247,
   "projectRoot": "D:\\morning-briefing",
   "techStack": {
-    "languages": [],
+    "languages": [
+      {
+        "name": "Python",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "requirements.txt"
+        ]
+      }
+    ],
     "frameworks": [],
-    "packageManager": null,
+    "packageManager": "pip",
     "runtime": null
   },
   "build": {
@@ -16,7 +25,7 @@
     "scripts": {}
   },
   "conventions": {
-    "namingStyle": null,
+    "namingStyle": "snake_case",
     "importStyle": null,
     "testPattern": null,
     "fileOrganization": null
@@ -24,109 +33,89 @@
   "structure": {
     "isMonorepo": false,
     "workspaces": [],
-    "mainDirectories": [],
+    "mainDirectories": [
+      "app",
+      "docs"
+    ],
     "gitBranches": {
       "defaultBranch": "master",
       "branchingStrategy": null
     }
   },
   "customNotes": [],
-  "directoryMap": {},
+  "directoryMap": {
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 7,
+      "lastAccessed": 1779849478843,
+      "keyFiles": [
+        "auth.py",
+        "calendar_client.py",
+        "gmail_client.py",
+        "main.py",
+        "slack_sender.py"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 3,
+      "lastAccessed": 1779849478847,
+      "keyFiles": [
+        "00-INDEX.md",
+        "agent-workflow.md",
+        "code-review-checklist.md"
+      ]
+    }
+  },
   "hotPaths": [
     {
-      "path": "",
-      "accessCount": 5,
-      "lastAccessed": 1779422203634,
-      "type": "directory"
+      "path": "C:\\Users\\dhwns\\.claude\\skills\\morning-briefing-setup.md",
+      "accessCount": 4,
+      "lastAccessed": 1779852411092,
+      "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\Hermes_Gateway.cmd",
+      "path": "app\\calendar_client.py",
       "accessCount": 3,
-      "lastAccessed": 1779421235049,
+      "lastAccessed": 1779850594633,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\.hermes",
-      "accessCount": 1,
-      "lastAccessed": 1779420712447,
-      "type": "directory"
-    },
-    {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes",
-      "accessCount": 1,
-      "lastAccessed": 1779420718316,
-      "type": "directory"
-    },
-    {
-      "path": "C:\\Users\\dhwns\\.hermes\\gateway_state.json",
-      "accessCount": 1,
-      "lastAccessed": 1779420729995,
+      "path": "app\\auth.py",
+      "accessCount": 2,
+      "lastAccessed": 1779850030540,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\MorningBriefing_Catchup.ps1",
-      "accessCount": 1,
-      "lastAccessed": 1779420879702,
+      "path": "app\\summarizer.py",
+      "accessCount": 2,
+      "lastAccessed": 1779850602076,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Local\\hermes\\gateway-service\\MorningBriefing_Marker.ps1",
+      "path": "C:\\Users\\dhwns\\.hermes\\google_token.json",
       "accessCount": 1,
-      "lastAccessed": 1779420929025,
+      "lastAccessed": 1779849606995,
       "type": "file"
     },
     {
-      "path": "C:\\Users\\dhwns\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\MorningBriefing_Catchup.vbs",
+      "path": "app\\gmail_client.py",
       "accessCount": 1,
-      "lastAccessed": 1779420966865,
-      "type": "file"
-    },
-    {
-      "path": "C:\\Users\\dhwns\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Hermes_Gateway.vbs",
-      "accessCount": 1,
-      "lastAccessed": 1779421240419,
-      "type": "file"
-    },
-    {
-      "path": "README.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422009636,
+      "lastAccessed": 1779850041312,
       "type": "file"
     },
     {
       "path": "SKILL.md",
       "accessCount": 1,
-      "lastAccessed": 1779422011704,
+      "lastAccessed": 1779851610187,
       "type": "file"
     },
     {
-      "path": ".claude\\settings.local.json",
+      "path": ".claude\\skills\\morning-briefing-setup.md",
       "accessCount": 1,
-      "lastAccessed": 1779422014304,
-      "type": "file"
-    },
-    {
-      "path": "CLAUDE.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422145931,
-      "type": "file"
-    },
-    {
-      "path": "docs\\00-INDEX.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422169613,
-      "type": "file"
-    },
-    {
-      "path": "docs\\agent-workflow.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422187088,
-      "type": "file"
-    },
-    {
-      "path": "docs\\code-review-checklist.md",
-      "accessCount": 1,
-      "lastAccessed": 1779422195729,
+      "lastAccessed": 1779852320417,
       "type": "file"
     }
   ],
