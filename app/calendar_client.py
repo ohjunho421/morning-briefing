@@ -19,7 +19,7 @@ def fetch_today_events() -> list[dict[str, Any]]:
     Each item: {"summary", "start", "end", "location", "all_day"}
     """
     creds = get_google_credentials()
-    service = build("calendar", "v1", credentials=creds, cache_discovery=False)
+    service = build("calendar", "v3", credentials=creds, cache_discovery=False)
 
     now_kst = datetime.now(KST)
     start_of_day = now_kst.replace(hour=0, minute=0, second=0, microsecond=0)

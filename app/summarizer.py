@@ -20,8 +20,6 @@ def build_briefing(emails: list[dict[str, Any]], events: list[dict[str, Any]]) -
     calendar_block = _format_events(events)
 
     prompt = f"""아래 데이터를 바탕으로 한국어 모닝 브리핑을 작성해줘.
-Slack 메시지로 보낼 거라 깔끔한 포맷으로 부탁해.
-이모지를 적절히 써서 가독성을 높여줘.
 
 ## Gmail (지난 24시간)
 {email_block}
@@ -29,7 +27,10 @@ Slack 메시지로 보낼 거라 깔끔한 포맷으로 부탁해.
 ## Google Calendar (오늘 일정)
 {calendar_block}
 
-## 포맷 규칙
+## 포맷 규칙 (Slack mrkdwn 형식 필수)
+- Slack 전용 마크업만 사용: *굵게*, _기울임_, ~취소선~, `코드`
+- 절대 사용 금지: **더블 별표**, ### 해시 헤더, [링크](url)
+- 섹션 구분은 이모지 + *제목* 으로 (예: :email: *이메일 요약*)
 - 이메일: 발신자, 제목, 핵심 내용 1줄 요약
 - 일정: 시간, 제목, 장소 (있으면)
 - 이메일이 없으면 "새로운 메일이 없습니다" 라고 알려줘
