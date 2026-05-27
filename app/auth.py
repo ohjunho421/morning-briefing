@@ -10,8 +10,11 @@ from google.oauth2.credentials import Credentials
 logger = logging.getLogger(__name__)
 
 
-def get_google_credentials(scopes: list[str]) -> Credentials:
+def get_google_credentials() -> Credentials:
     """Build and refresh credentials from Railway environment variables.
+
+    Scopes are already bound to the refresh token — do NOT pass them here,
+    or Google returns 'invalid_scope' on refresh.
 
     Raises RuntimeError with an actionable message on auth failure.
     """
@@ -21,7 +24,6 @@ def get_google_credentials(scopes: list[str]) -> Credentials:
         token_uri="https://oauth2.googleapis.com/token",
         client_id=os.environ["GOOGLE_CLIENT_ID"],
         client_secret=os.environ["GOOGLE_CLIENT_SECRET"],
-        scopes=scopes,
     )
 
     try:

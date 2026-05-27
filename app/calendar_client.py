@@ -12,15 +12,13 @@ logger = logging.getLogger(__name__)
 
 KST = timezone(timedelta(hours=9))
 
-SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
-
 
 def fetch_today_events() -> list[dict[str, Any]]:
     """Return today's calendar events sorted by start time.
 
     Each item: {"summary", "start", "end", "location", "all_day"}
     """
-    creds = get_google_credentials(SCOPES)
+    creds = get_google_credentials()
     service = build("calendar", "v1", credentials=creds, cache_discovery=False)
 
     now_kst = datetime.now(KST)
